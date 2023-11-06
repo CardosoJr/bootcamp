@@ -30,4 +30,4 @@ features:
 split: 
   method: kfold
   params:
-    split: 5
+    num_split: 5
