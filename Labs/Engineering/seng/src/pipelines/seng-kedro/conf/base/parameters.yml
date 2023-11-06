@@ -1,0 +1,33 @@
+features: 
+  problem: binary
+  initial_target : review_score
+  handle_missing: delete
+  numerical:
+    - payment_value
+    - review_score
+    - logistics_length
+    - delay_length
+    - is_delayed
+    - customer_seller_distance
+    - product_volume
+    - product_weight_g
+    - product_photos_qty
+    - freight_value
+    - s_total_volume
+    - s_total_items
+    - freight_ratio
+  categorical:
+    - customer_state
+    - product_category_name
+    - seller_state 
+  pre_processing:
+    woe:
+      - product_category_name
+    catboost:
+      - customer_state
+      - seller_state
+
+split: 
+  method: kfold
+  params:
+    split: 5

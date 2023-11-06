@@ -1,0 +1,54 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+
+olist_orders_dataset:
+  type: pandas.ParquetDataset
+  filepath: ../../../data/raw/olist_orders_dataset.pq
+
+olist_order_items_dataset:
+  type: pandas.ParquetDataset
+  filepath: ../../../data/raw/olist_order_items_dataset.pq
+
+olist_order_payments_dataset:
+  type: pandas.ParquetDataset
+  filepath: ../../../data/raw/olist_order_payments_dataset.pq
+
+olist_order_reviews_dataset:
+  type: pandas.ParquetDataset
+  filepath: ../../../data/raw/olist_order_reviews_dataset.pq
+
+olist_products_dataset:
+  type: pandas.ParquetDataset
+  filepath: ../../../data/raw/olist_products_dataset.pq
+
+olist_geolocation_dataset:
+  type: pandas.ParquetDataset
+  filepath: ../../../data/raw/olist_geolocation_dataset.pq
+
+product_category_name_translation:
+  type: pandas.ParquetDataset
+  filepath: ../../../data/raw/product_category_name_translation.pq
+
+olist_sellers_dataset:
+  type: pandas.ParquetDataset
+  filepath: ../../../data/raw/olist_sellers_dataset.pq
+
+olist_customers_dataset:
+  type: pandas.ParquetDataset
+  filepath: ../../../data/raw/olist_customers_dataset.pq
+
+
+processed_orders:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/processed_orders.pq
+
+processed_order_items:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/processed_order_items.pq
+
+final_dataset:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/final_dataset.pq
