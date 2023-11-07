@@ -30,7 +30,6 @@ def project_context(config_loader):
         hook_manager=_create_hook_manager(),
     )
 
-
 class TestProjectContext:
     def test_project_path(self, project_context):
         assert project_context.project_path == Path.cwd()
