@@ -11,7 +11,7 @@ import numpy as np
 def test_encoding():
     np.random.seed(42)
     df_train = pd.DataFrame({"cat_col" : np.random.choice(['a', 'b', 'c'], 10), 'target' : (np.random.uniform(size = 10) > 0.7) * 1})
-    from src.feature_engineering import encoding 
+    from module.feature_engineering import encoding 
     params = {'catboost' : {'cols' : ['cat_col'], 'target' : 'target'}}
     enc = encoding.Encoding(params)   
     enc.fit(df_train)

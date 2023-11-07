@@ -18,12 +18,12 @@ import os
 os.chdir(str(Path("../../../")))
 print(os.chdir)
 
-import src.data.preprocessing as pp
-import src.data.problem_definition as problem
-import src.data.split as split
-import src.feature_engineering.engineering as eng
-import src.feature_engineering.encoding as enc
-import src.models.train_model as train
+import module.data.preprocessing as pp
+import module.data.problem_definition as problem
+import module.data.split as split
+import module.feature_engineering.engineering as eng
+import module.feature_engineering.encoding as enc
+import module.models.train_model as train
 
 file_path = "./data/raw/"
 df_o = pd.read_parquet(Path(file_path + 'olist_orders_dataset.pq'))

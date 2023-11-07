@@ -1,11 +1,11 @@
 import pandas as pd
 import numpy as np 
 
-import src.data.preprocessing as pp
-import src.data.problem_definition as problem
-import src.data.split as split
-import src.feature_engineering.engineering as eng
-import src.feature_engineering.encoding as enc
+import module.data.preprocessing as pp
+import module.data.problem_definition as problem
+import module.data.split as split
+import module.feature_engineering.engineering as eng
+import module.feature_engineering.encoding as enc
 
 def prepare_and_merge(df_o: pd.DataFrame, 
                    df_oi: pd.DataFrame,
