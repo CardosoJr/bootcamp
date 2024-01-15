@@ -1,7 +1,7 @@
 [tool.pytest.ini_options]
 addopts = """
 --cov-report term-missing \
---cov src/ -ra"""
+--cov module/ -ra"""
 
 [tool.coverage.report]
 fail_under = 0
