@@ -123,6 +123,15 @@
       }
     },
     {
+      "expectation_type": "expect_column_mean_to_be_between",
+      "kwargs": {
+        "column": "price",
+        "max_value": 132.7191129161119,
+        "min_value": 108.58836511318245
+      },
+      "meta": {}
+    },
+    {
       "expectation_type": "expect_column_to_exist",
       "kwargs": {
         "column": "freight_value"
@@ -141,6 +150,15 @@
         "layer": "raw",
         "source": "olist_order_items_dataset"
       }
+    },
+    {
+      "expectation_type": "expect_column_mean_to_be_between",
+      "kwargs": {
+        "column": "freight_value",
+        "max_value": 21.989351921881937,
+        "min_value": 17.99128793608522
+      },
+      "meta": {}
     }
   ],
   "ge_cloud_id": null,
