@@ -14,13 +14,13 @@ def create_pipeline(**kwargs) -> Pipeline:
                     node(
                         func = training_node,
                         inputs = ["params:model", f"df_train_final_{i}"],
-                        outputs = [f"model_{i}"],
+                        outputs = f"model_{i}",
                         name = f"training_{i}"
                     ),      
                     node(
                         func = predict_node,
                         inputs = [f"model_{i}", f"df_val_final_{i}"],
-                        outputs = [f"df_val_pred_{i}"],
+                        outputs = f"df_val_pred_{i}",
                         name = f"predict_{i}"
                     ),  
                 ]   
@@ -30,7 +30,7 @@ def create_pipeline(**kwargs) -> Pipeline:
             node(
                 func = metrics_node,
                 inputs = [f"df_val_pred_{i}" for i in range(num_splits)],
-                outputs = [f"metrics"],
+                outputs = f"metrics",
                 name = "evaluate"
             ),     
         )

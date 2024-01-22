@@ -11,7 +11,7 @@ def training_node(params, data):
     return model
 
 def predict_node(model, data):
-    pred = predict(data, model)
+    pred = predict(data.loc[:, data.columns != "target"], model)
     data['predictions'] = pred
     return data
 

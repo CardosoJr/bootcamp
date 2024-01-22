@@ -10,7 +10,6 @@ class FactoryInterface(ABC):
         pass
 
 class ModelFactory(FactoryInterface):
-
     model_dict = {
         "xgboost" : lambda hyperparameters: XGBClassifier(**hyperparameters),
         "catboost" : lambda hyperparameters: CatBoostClassifier(**hyperparameters),
