@@ -52,3 +52,21 @@ processed_order_items:
 final_dataset:
   type: pandas.ParquetDataset
   filepath: data/02_intermediate/final_dataset.pq
+
+
+# Training & Validation data
+
+"df_{type}_final_{partition}": # This is a dataset factory. Useful to reduce the number of entries in the catalog 
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/data_{type}_final_{partition}.pq
+
+
+# Model 
+"model_{id}":
+  type: pickle.PickleDataset
+  filepath: data/06_models/model_{id}.pickle
+
+# Experiment Tracking 
+metrics:
+  type: tracking.MetricsDataset
+  filepath: data/08_reporting/metrics.json

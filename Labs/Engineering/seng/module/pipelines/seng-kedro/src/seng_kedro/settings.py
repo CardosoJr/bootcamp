@@ -15,6 +15,10 @@ from kedro.config import OmegaConfigLoader  # noqa: import-outside-toplevel
 
 CONFIG_LOADER_CLASS = OmegaConfigLoader
 
+from kedro_viz.integrations.kedro.sqlite_store import SQLiteStore
+SESSION_STORE_CLASS = SQLiteStore
+SESSION_STORE_ARGS = {"path": str(Path(__file__).parents[2] / "data")}
+
 # Instantiated project hooks.
 # For example, after creating a hooks.py and defining a ProjectHooks class there, do
 # from seng_kedro.hooks import ProjectHooks
