@@ -1,0 +1,150 @@
+{
+  "data_asset_type": "Dataset",
+  "expectation_suite_name": "olist_order_items_dataset.raw.suite",
+  "expectations": [
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "order_id"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "order_id"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "order_item_id"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "order_item_id"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "product_id"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "product_id"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "seller_id"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "seller_id"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "shipping_limit_date"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "shipping_limit_date"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "price"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "price"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_to_exist",
+      "kwargs": {
+        "column": "freight_value"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    },
+    {
+      "expectation_type": "expect_column_values_to_not_be_null",
+      "kwargs": {
+        "column": "freight_value"
+      },
+      "meta": {
+        "layer": "raw",
+        "source": "olist_order_items_dataset"
+      }
+    }
+  ],
+  "ge_cloud_id": null,
+  "meta": {
+    "great_expectations_version": "0.18.1"
+  }
+}

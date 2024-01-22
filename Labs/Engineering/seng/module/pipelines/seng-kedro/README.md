@@ -4,6 +4,16 @@
 
 This is a Kedro pipeline developed to use the modules developed
 
+
+## Configuring Great Expectations and Mlflow
+
+install great-expectations and mlflow 
+
+`pip install great-expectations`
+
+`pip install kedro-mlflow`
+
+
 ## TO DO List
 
 [] Develop testing

@@ -1,0 +1,32 @@
+name: olist_order_items_dataset.raw
+config_version: 1.0
+template_name:
+module_name: great_expectations.checkpoint
+class_name: Checkpoint
+run_name_template: 'olist_order_items_dataset-raw-%Y%m%d-%H%M%S'
+expectation_suite_name:
+batch_request: {}
+action_list:
+  - name: store_validation_result
+    action:
+      class_name: StoreValidationResultAction
+  - name: store_evaluation_params
+    action:
+      class_name: StoreEvaluationParametersAction
+  - name: update_data_docs
+    action:
+      class_name: UpdateDataDocsAction
+      site_names: []
+evaluation_parameters: {}
+runtime_configuration: {}
+validations:
+  - batch_request:
+      datasource_name: pandas_dataframe
+      data_connector_name: default_runtime_data_connector_name
+      data_asset_name: pandas_dataframe
+      # data_connector_query:
+      #   index: -1
+    expectation_suite_name: olist_order_items_dataset.raw.suite
+profilers: []
+ge_cloud_id:
+expectation_suite_ge_cloud_id:

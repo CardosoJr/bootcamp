@@ -8,8 +8,9 @@ import sys
 parent_dir = Path(__file__).resolve().parents[5]
 sys.path.append(str(parent_dir))
 
-from seng_kedro.hooks import proj_hooks
-HOOKS = (proj_hooks.ProjectHooks(),)
+from seng_kedro.hooks import proj_hooks, data_validation
+HOOKS = (proj_hooks.ProjectHooks(), 
+         data_validation.DataValidationHooks(),)
 
 from kedro.config import OmegaConfigLoader  # noqa: import-outside-toplevel
 

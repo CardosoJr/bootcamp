@@ -1,7 +1,7 @@
 [tool.kedro]
 package_name = "seng_kedro"
 project_name = "seng_kedro"
-kedro_init_version = "0.18.14"
+kedro_init_version = "0.19.2"
 
 [tool.isort]
 profile = "black"

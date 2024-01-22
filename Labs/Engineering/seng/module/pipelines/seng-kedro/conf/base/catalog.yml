@@ -40,7 +40,6 @@ olist_customers_dataset:
   type: pandas.ParquetDataset
   filepath: ../../../data/raw/olist_customers_dataset.pq
 
-
 processed_orders:
   type: pandas.ParquetDataset
   filepath: data/02_intermediate/processed_orders.pq
