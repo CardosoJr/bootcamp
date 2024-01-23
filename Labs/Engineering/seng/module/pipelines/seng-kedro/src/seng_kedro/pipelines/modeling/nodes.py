@@ -35,7 +35,7 @@ def split_dataset(df_o: pd.DataFrame, params):
             train_data.append(df_o.loc[idx_train])
             val_data.append(df_o.loc[idx_test])
     else:
-        splitter = split.Split(seed = 42, validation_size = None, test_size = params['params']['test_size'])
+        splitter = split.SimpleSplit(seed = 42, validation_size = None, test_size = params['params']['test_size'])
         idx_train, idx_validation, idx_test = splitter.fit_transform(df_o)
         train_data.append(df_o.loc[idx_train])
         val_data.append(df_o.loc[idx_test])

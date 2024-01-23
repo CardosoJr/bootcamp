@@ -6,6 +6,7 @@ from kedro.pipeline import Pipeline
 
 from seng_kedro.pipelines.data_preprocessing.pipeline import create_pipeline as dp_pipeline
 from seng_kedro.pipelines.modeling.pipeline import create_pipeline as m_pipeline
+from seng_kedro.pipelines.production.pipeline import create_pipeline as p_pipeline
 
 def register_pipelines() -> dict[str, Pipeline]:
     # """Register the project's pipelines.
@@ -39,6 +40,7 @@ def register_dynamic_pipelines(catalog: DataCatalog) -> dict[str, Pipeline]:
     # create pipelines with access to catalog
     preprocessing_pipeline = dp_pipeline(catalog = catalog)
     modeling_pipeline = m_pipeline(catalog = catalog)
+    production_pipeline = p_pipeline(catalog = catalog)
     
     def register_pipelines():
         """Register the project's pipelines.
@@ -47,10 +49,12 @@ def register_dynamic_pipelines(catalog: DataCatalog) -> dict[str, Pipeline]:
             A mapping from pipeline names to ``Pipeline`` objects.
         """
         pipelines = {
-            "preprocessing_pipeline": preprocessing_pipeline,
-            "modeling_pipeline": modeling_pipeline,
+            "data_preprocessing": preprocessing_pipeline,
+            "modeling": modeling_pipeline,
+            "production": production_pipeline,
         }
-        pipelines["__default__"] = sum(pipelines.values())
+        pipelines["__default__"] = preprocessing_pipeline + modeling_pipeline
+        pipelines["full_production"]  = preprocessing_pipeline + production_pipeline
         return pipelines
 
     return register_pipelines

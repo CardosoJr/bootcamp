@@ -1,0 +1,4 @@
+prod_split:
+  method: "simple"
+  params:
+    test_size: 0.2

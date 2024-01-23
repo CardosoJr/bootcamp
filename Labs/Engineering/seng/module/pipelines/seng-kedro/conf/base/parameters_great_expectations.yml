@@ -1,0 +1,6 @@
+great_expectations:
+  context_root_dir: #"conf/base/great_expectations"
+  break_on_error: False
+  checkpoint_mapper:
+    # datasename : #checkpoint (notice that a suite needs to be linked to a checkpoint)
+    "olist_order_items_dataset": "olist_order_items_dataset.raw"
