@@ -3,9 +3,9 @@ import numpy as np
 
 import module.data.preprocessing as pp
 import module.data.problem_definition as problem
-import module.data.split as split
 import module.feature_engineering.engineering as eng
-import module.feature_engineering.encoding as enc
+
+
 import hashlib
 
 def get_raw_hash(df_o: pd.DataFrame, 
@@ -80,33 +80,3 @@ def create_finaldataset(df_o: pd.DataFrame, df_oi: pd.DataFrame, params) -> pd.D
         p = problem.MultClassProblem(target = params['initial_target'], data = df_o) 
     
     return p.get_data()
-
-def split_dataset(df_o: pd.DataFrame, params):
-    train_data = []
-    val_data = []
-    if params['method'] == 'kfold':
-        splitter = split.KFoldSplit(seed = 42, num_folds = params['params']['num_split'])
-        idx = splitter.fit_transform(df_o)
-
-        for idx_train, idx_test in idx:
-            train_data.append(df_o.loc[idx_train])
-            val_data.append(df_o.loc[idx_test])
-    else:
-        splitter = split.Split(seed = 42, validation_size = None, test_size = params['params']['test_size'])
-        idx_train, idx_validation, idx_test = splitter.fit_transform(df_o)
-        train_data.append(df_o.loc[idx_train])
-        val_data.append(df_o.loc[idx_test])
-
-    return tuple(train_data + val_data)
-
-def encode(df_train: pd.DataFrame, df_val: pd.DataFrame, params):
-    convert_structure = {}
-    for method, cols in params['pre_processing'].items():
-        convert_structure[method] = {'cols' : cols, 'target' : 'target'}
-    encoder = enc.Encoding(convert_structure = convert_structure)
-
-    encoder.fit(df_train)
-    df_train = encoder.transform(df_train)
-    df_val = encoder.transform(df_val)
-
-    return df_train, df_val

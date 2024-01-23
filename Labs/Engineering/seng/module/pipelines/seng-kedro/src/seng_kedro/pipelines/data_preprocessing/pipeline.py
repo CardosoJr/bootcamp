@@ -60,28 +60,4 @@ def create_pipeline(**kwargs) -> Pipeline:
             ),
     ])
 
-    if 'split' in params.keys():
-        num_splits = params['split']['params']['num_split']
-        nodes = [
-            node(
-                func = split_dataset,
-                inputs = ["final_dataset", "params:split"],
-                outputs = [f"df_train_{i}" for i in range(num_splits)] + [f"df_val_{i}" for i in range(num_splits)],
-                name = "splitting_datasets"
-            ),            
-        ]
-
-        for i in range(num_splits):
-            n = node(
-                func = encode,
-                inputs = [f"df_train_{i}", f"df_val_{i}", "params:features"],
-                outputs = [f"df_train_final_{i}", f"df_val_final_{i}"],
-                name = f"encoding_{i}" 
-            )
-            nodes.append(n)
-
-        encoding_pipeline = pipeline(nodes)
-
-        return processing_pipeline + encoding_pipeline
-    else:
-        return processing_pipeline
+    return processing_pipeline

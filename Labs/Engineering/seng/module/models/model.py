@@ -1,5 +1,7 @@
 import git
 from sklearn.base import BaseEstimator, ClassifierMixin
+import pickle
+from pathlib import Path
 
 class PipelineModel(BaseEstimator, ClassifierMixin):
     def __init__(self, model):
@@ -19,3 +21,10 @@ class PipelineModel(BaseEstimator, ClassifierMixin):
     
     def predict_proba(self, X):
         return self.model.predict_proba(X)
+    
+    def save(self, path):
+        pickle.dump(self, Path(path).open(mode = 'wb'))
+
+    @classmethod
+    def load(cls, path):
+        return pickle.load(Path(path).open(mode = 'rb'))
