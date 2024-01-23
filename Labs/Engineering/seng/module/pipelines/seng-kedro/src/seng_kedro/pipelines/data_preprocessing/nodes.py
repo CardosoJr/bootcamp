@@ -6,6 +6,29 @@ import module.data.problem_definition as problem
 import module.data.split as split
 import module.feature_engineering.engineering as eng
 import module.feature_engineering.encoding as enc
+import hashlib
+
+def get_raw_hash(df_o: pd.DataFrame, 
+                   df_oi: pd.DataFrame,
+                   df_c: pd.DataFrame,
+                   df_or: pd.DataFrame,
+                   df_op: pd.DataFrame,
+                   df_l: pd.DataFrame,
+                   df_p: pd.DataFrame,
+                   df_s: pd.DataFrame,
+                   ) -> dict:
+    
+    hash = { "order" : hashlib.sha256(df_o.sort_index(axis=1).to_string().encode()).hexdigest(),
+             "order_items" : hashlib.sha256(df_oi.sort_index(axis=1).to_string().encode()).hexdigest(), 
+             "customers" : hashlib.sha256(df_c.sort_index(axis=1).to_string().encode()).hexdigest(), 
+             "order_reviews" : hashlib.sha256(df_or.sort_index(axis=1).to_string().encode()).hexdigest(), 
+             "order_payments" : hashlib.sha256(df_op.sort_index(axis=1).to_string().encode()).hexdigest(), 
+             "geolocalization" : hashlib.sha256(df_l.sort_index(axis=1).to_string().encode()).hexdigest(), 
+             "products" : hashlib.sha256(df_p.sort_index(axis=1).to_string().encode()).hexdigest(), 
+             "sellers" : hashlib.sha256(df_s.sort_index(axis=1).to_string().encode()).hexdigest(), 
+    }
+
+    return hash, hash
 
 def prepare_and_merge(df_o: pd.DataFrame, 
                    df_oi: pd.DataFrame,

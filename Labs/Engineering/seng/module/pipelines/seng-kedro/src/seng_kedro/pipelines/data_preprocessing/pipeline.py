@@ -9,6 +9,21 @@ def create_pipeline(**kwargs) -> Pipeline:
 
     processing_pipeline =  pipeline([
         node(
+                func=get_raw_hash,
+                inputs=["olist_orders_dataset", 
+                        "olist_order_items_dataset", 
+                        "olist_customers_dataset",
+                        "olist_order_reviews_dataset", 
+                        "olist_order_payments_dataset",
+                        "olist_geolocation_dataset",
+                        "olist_products_dataset",
+                        "olist_sellers_dataset",
+                        ],
+                outputs=["raw_hash_tracking", 'raw_hash'],
+                name="get_raw_data_hash",
+            ),
+
+        node(
                 func=prepare_and_merge,
                 inputs=["olist_orders_dataset", 
                         "olist_order_items_dataset", 

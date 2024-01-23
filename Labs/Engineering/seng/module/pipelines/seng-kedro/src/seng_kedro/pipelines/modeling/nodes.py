@@ -5,9 +5,10 @@ from module.models.factory import ModelFactory
 from module.models.development import training, predict
 from module.reporting.model_analysis import ModelAnalysis
 
-def training_node(params, data):
+def training_node(params, data, raw_hash):
     y = data.pop('target')
     model = training(data, y, params)
+    model.set_data_hash(raw_hash)
     return model
 
 def predict_node(model, data):

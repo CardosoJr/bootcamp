@@ -13,7 +13,7 @@ def create_pipeline(**kwargs) -> Pipeline:
                 [
                     node(
                         func = training_node,
-                        inputs = ["params:model", f"df_train_final_{i}"],
+                        inputs = ["params:model", f"df_train_final_{i}", 'raw_hash'],
                         outputs = f"model_{i}",
                         name = f"training_{i}"
                     ),      
