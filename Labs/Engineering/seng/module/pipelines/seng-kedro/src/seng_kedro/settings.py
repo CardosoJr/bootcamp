@@ -9,8 +9,11 @@ parent_dir = Path(__file__).resolve().parents[5]
 sys.path.append(str(parent_dir))
 
 from seng_kedro.hooks import proj_hooks, data_validation
+from kedro_mlflow.framework.hooks import MlflowHook
+
 HOOKS = (proj_hooks.ProjectHooks(), 
-         data_validation.DataValidationHooks(),)
+         data_validation.DataValidationHooks(),
+         MlflowHook(),)
 
 from kedro.config import OmegaConfigLoader  # noqa: import-outside-toplevel
 

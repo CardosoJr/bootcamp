@@ -55,7 +55,7 @@ final_dataset:
 # Repro
 
 raw_hash_tracking:
-  type: tracking.JSONDataSet
+  type: tracking.JSONDataset
   filepath: data/02_intermediate/raw_hash_tracking.json
 
 raw_hash:
