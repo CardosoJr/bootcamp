@@ -1,5 +1,6 @@
 from kedro.pipeline import Pipeline, node, pipeline
 from ..modeling import nodes as mod_nodes
+from .nodes import *
 
 def create_pipeline(**kwargs) -> Pipeline:
     catalog = kwargs['catalog']
@@ -32,7 +33,7 @@ def create_pipeline(**kwargs) -> Pipeline:
                 name = f"prod_predict"
             ),  
             node(
-                func = mod_nodes.metrics_node,
+                func = mlflow_metrics,
                 inputs = [f"df_test_pred"],
                 outputs = f"metrics_prod",
                 name = "prod_evaluate"

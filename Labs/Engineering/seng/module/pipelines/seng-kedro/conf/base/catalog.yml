@@ -53,7 +53,6 @@ final_dataset:
   filepath: data/02_intermediate/final_dataset.pq
 
 # Repro
-
 raw_hash_tracking:
   type: tracking.JSONDataset
   filepath: data/02_intermediate/raw_hash_tracking.json
@@ -63,11 +62,9 @@ raw_hash:
   filepath: data/02_intermediate/raw_hash.pickle
 
 # Training & Validation data
-
 "df_{type}_final_{partition}": # This is a dataset factory. Useful to reduce the number of entries in the catalog 
   type: pandas.ParquetDataset
   filepath: data/05_model_input/data_{type}_final_{partition}.pq
-
 
 # Model 
 "model_{id}":
@@ -78,3 +75,19 @@ raw_hash:
 metrics:
   type: tracking.MetricsDataset
   filepath: data/08_reporting/metrics.json
+
+# MLFlow tracking
+df_train_prod:
+    type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+    dataset:
+        type: pandas.ParquetDataset  # or any valid kedro DataSet
+        filepath: data/05_model_input/df_train_prod.pq
+
+model_prod:
+    type: kedro_mlflow.io.models.MlflowModelTrackingDataset
+    flavor: module.models.custom_flavor
+    pyfunc_workflow: python_model # or loader_module
+
+metrics_prod:
+    type: kedro_mlflow.io.metrics.MlflowMetricsHistoryDataset
+    prefix: model

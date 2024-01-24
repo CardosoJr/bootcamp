@@ -16,7 +16,8 @@ install great-expectations and mlflow
 
 ### Mlflow setup 
 
-run `kedro mlflow init`
+- Run `kedro mlflow init`
+- Configure `conf/local/mlflow.yml`
 
 ## TO DO List
 
@@ -25,7 +26,7 @@ run `kedro mlflow init`
 [x] Create pipelines without kedro's autoregister
 [x] Use mlflow
 [] Multiple experiments
-
+[] Remove debug runs from Kedro Tracking
 
 ## Follow up 
 

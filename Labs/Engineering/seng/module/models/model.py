@@ -4,11 +4,15 @@ import pickle
 from pathlib import Path
 
 class PipelineModel(BaseEstimator, ClassifierMixin):
-    def __init__(self, model):
+    def __init__(self, model, offset = 0):
+        self.offset = offset
         self.model = model
         repo = git.Repo(search_parent_directories=True)
         self.commit_hash = repo.head.object.hexsha
         self.data_hash = {}
+
+    def __eq__(self, other):
+        return self.offset == other.offset
 
     def set_data_hash(self, hash):
          self.data_hash = hash
