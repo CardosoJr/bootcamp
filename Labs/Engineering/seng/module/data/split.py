@@ -21,7 +21,7 @@ class SimpleSplit(Split):
         train, test = train_test_split(data.index, test_size = self.test_size, random_state = self.seed)
         validation = []
         if self.validation_size:
-            train, validation = train_test_split(data[train].index, test_size = self.validation_size, shuffle = True, random_state = self.seed + 1)
+            train, validation = train_test_split(data.loc[train].index, test_size = self.validation_size, shuffle = True, random_state = self.seed + 1)
         return train, validation, test
 
 class KFoldSplit(Split):
