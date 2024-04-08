@@ -1,0 +1,11 @@
+numpy
+pandas 
+plotly
+matplotlib
+seaborn
+streamlit
+statsmodels
+scikit-learn
+nbformat>=4.2.0
+pytest
+pytest-cov
