@@ -1,0 +1,19 @@
+raw_house_prices:
+  type: pandas.ParquetDataset
+  filepath: ./data/01_raw/MELBOURNE_HOUSE_PRICES_LESS.pq
+
+processed_house_prices:
+  type: pandas.ParquetDataset
+  filepath: ./data/02_intermediate/MELBOURNE_HOUSE_PRICES_LESS.pq
+
+coefficients:
+  type: tracking.JSONDataset
+  filepath: ./data/08_reporting/coefficients.json
+
+model:
+  type: pickle.PickleDataset
+  filepath: ./data/06_models/model.pickle
+
+metrics:
+  type: tracking.MetricsDataset
+  filepath: ./data/08_reporting/metrics.json

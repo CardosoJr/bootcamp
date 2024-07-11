@@ -1,0 +1,14 @@
+missing_limit: 0.50
+test_size: 0.30
+
+features: 
+  - "Distance"
+  - "Year"
+  - "Month"
+  - "Rooms"
+  - "Regionname"
+
+target: "Price"
+
+categorical_features: 
+  - "Regionname"

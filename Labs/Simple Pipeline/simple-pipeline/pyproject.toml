@@ -1,0 +1,42 @@
+[build-system]
+requires = [ "setuptools",]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simple_pipeline"
+readme = "README.md"
+dynamic = [ "dependencies", "version",]
+
+[project.scripts]
+simple-pipeline = "simple_pipeline.__main__:main"
+
+[project.optional-dependencies]
+docs = [ "docutils<0.21", "sphinx>=5.3,<7.3", "sphinx_rtd_theme==2.0.0", "nbsphinx==0.8.1", "sphinx-autodoc-typehints==1.20.2", "sphinx_copybutton==0.5.2", "ipykernel>=5.3, <7.0", "Jinja2<3.2.0", "myst-parser>=1.0,<2.1",]
+
+[tool.kedro]
+package_name = "simple_pipeline"
+project_name = "simple_pipeline"
+kedro_init_version = "0.19.6"
+tools = [ "Testing", "Custom Logging", "Documentation", "Data Structure", "Kedro Viz",]
+example_pipeline = "False"
+source_dir = "src"
+
+[project.entry-points."kedro.hooks"]
+
+[tool.pytest.ini_options]
+addopts = "--cov-report term-missing --cov src/simple_pipeline -ra"
+
+[tool.coverage.report]
+fail_under = 0
+show_missing = true
+exclude_lines = [ "pragma: no cover", "raise NotImplementedError",]
+
+[tool.setuptools.dynamic.dependencies]
+file = "requirements.txt"
+
+[tool.setuptools.dynamic.version]
+attr = "simple_pipeline.__version__"
+
+[tool.setuptools.packages.find]
+where = [ "src",]
+namespaces = false

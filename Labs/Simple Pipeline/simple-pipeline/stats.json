@@ -1,0 +1,1 @@
+{"raw_house_prices": {"rows": 63023, "columns": 13, "file_size": 1264728}, "cleaned_house_prices": {"rows": 48433, "columns": 13}, "processed_house_prices": {"rows": 48433, "columns": 15, "file_size": 1294325}, "train_house_prices": {"rows": 33903, "columns": 6}, "test_house_prices": {"rows": 14530, "columns": 6}}
